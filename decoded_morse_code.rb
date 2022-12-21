@@ -10,3 +10,13 @@ def decode_char(char)
 end 
 
 puts decode_char(".-")
+
+# decoding a word
+
+def decode_word(word)
+	@result = ''
+	word.split.each { |i| @result.concat(@container[i]) }
+	@result
+end
+
+puts decode_word("-- -.--")
