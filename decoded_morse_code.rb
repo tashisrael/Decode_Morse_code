@@ -5,6 +5,7 @@
 	'-' => 'T', '..-' => 'U', '...-' => 'V', '.--' => 'W', '-..-' => 'X', 
 	'-.--' => 'Y', '--..' => 'Z' } 
 
+# decoding a character
 def decode_char(char) 
 	@container[char] 
 end 
@@ -12,7 +13,6 @@ end
 puts decode_char(".-")
 
 # decoding a word
-
 def decode_word(word)
 	@result = ''
 	word.split.each { |i| @result.concat(@container[i]) }
@@ -20,3 +20,15 @@ def decode_word(word)
 end
 
 puts decode_word("-- -.--")
+
+# decoding an entire message
+def decode (message)
+   @sentence = message.split('   ')
+   @decoded_sentence = ''
+   @sentence.each do |n|
+     @decoded_sentence += "#{decode_word(n)} "
+   end
+   @decoded_sentence.strip
+ end
+
+puts decode("-- -.--   -. .- -- .")
